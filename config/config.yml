@@ -1,0 +1,64 @@
+################################
+# DISTRIBUTION                 #
+################################
+distribution:
+
+##############################
+# DISTRIBUTION TYPE          #
+#     0: Uniform (N - 1 DoF) #
+#     1: Uniform (N DoF)     #
+#     2: Normal              #
+#     3: Exponential         #
+##############################
+  type: 0
+
+# Normal distribution parameters
+# (ignored if distribution type is not normal)
+  mean: 7
+  sd: 1
+
+# Exponential distribution parameters
+# (ignored if distribution type is not exponential)
+  lambda: 1
+
+################################
+# FILTERING                    #
+################################
+filter:
+
+###################################
+# FILTER CONDITION                #
+# Only with uniform distribution  #
+#     NULL: No filtering          #
+#    [0-1]: Parametric filtering  #
+#        2: Weak filtering        #
+#        3: Strong filtering      #
+###################################
+  condition: 0.2
+
+###################################
+# FILTERING STRATEGY              #
+# Only if filter is applied       #
+#     0: Regenerate vector        #
+#     1: Remove vector            #
+###################################
+  strategy: 0
+
+###################################
+# SIMULATION PARAMETERS           #
+###################################
+simulation:
+  # Number of instances the simulation will run
+  instances: 100
+
+  # Maximum number of levels
+  max_levels: 3
+
+  # Maximum number of branches (children)
+  max_branches: 3
+
+  # Number of alternatives to be generated for each branch of the hierarchy 5, 10, 15, 25
+  alternatives: [ 5, 10, 15, 25 ]
+
+# Number of instances to compute the hit ratio
+hit_ratio_instances: 2
